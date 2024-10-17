@@ -9,7 +9,7 @@ class Didatico(models.Model):
     card = models.ImageField(upload_to='fotos/%d/%m/%Y')
 
 class Pais_profs(models.Model):
-    titulo = models.CharField(verbose_nome='Lorem ipsum', max_length=50)
+    titulo = models.CharField(verbose_name='Lorem ipsum', max_length=50)
     card = models.ImageField(upload_to='fotos/%d/%m/%Y')
 
 
