@@ -27,10 +27,10 @@
             <li>
               <a class="nav-link active" href="#">home</a>
             </li>
-            <li><a class="nav-link" href="{% static 'templates/videos.html' %}">vídeos</a></li>
+            <li><a class="nav-link" href="{% url 'videos' %}">vídeos</a></li>
             <li><a class="nav-link" href="{% static 'templates/forum.html' %}">fórum</a></li>
             <li>
-              <a class="nav-link" href="{% static 'templates/pais_profs.html' %}">pais & profs</a>
+              <a class="nav-link" href="{% url 'pais_profs' %}">pais & profs</a>
             </li>
           </ul>
           <div class="select_home"></div>
