@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.home',
     'apps.forum',
-    'app.pais_profs',
-    'app.videos',
+    'apps.pais_profs',
+    'apps.videos',
 ]
 
 MIDDLEWARE = [
