@@ -29,29 +29,7 @@
   <body>
     
     <!--SEÇÃO NAV-BAR DA PAIS&PROFS-->
-    <header class="header">
-      <a href="/index.html">
-        <img
-          class="nav-logo"
-          src="{% static 'img/images_navbar/logo.svg' %}"
-          alt="Sabidinhos logo"
-        />
-      </a>
-
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a class="nav-link" href="/index.html">home</a></li>
-          <li><a class="nav-link" href="../pages/videos.html">vídeos</a></li>
-          <li><a class="nav-link" href="../pages/forum.html">fórum</a></li>
-          <li>
-            <a class="nav-link active" href="../pages/pais_profs.html"
-              >pais & profs</a
-            >
-          </li>
-        </ul>
-        <div class="select_pais_profs"></div>
-      </nav>
-    </header>
+    {% include 'navbar.html' %}
 
     <main>
       <section class="section-hero">
@@ -75,129 +53,28 @@
       </section>
 
       <section class="section-recursos">
+        {% for i in categoria %}
         <div class="display-cards">
           <h2 class="heading-display">
-            Desenhos para <span class="text-colorir">colorir</span>
+            {{i.nome}} <span class="text-{{i.classe}}">{{i.palavraDestaque}}</span>
           </h2>
           <div class="retangle-colorir"></div>
           <div class="cards">
+            {% for j in card %}
             <div>
               <div class="card-img transparecia-img">
                 <img
-                  src="{% static 'img/images_pais_profs/colorir1.png' %}"
+                  src="{{j.img.url}}"
                   alt="Imagem para colorir: letra 'A'"
                 />
               </div>
 
-              <h3 class="heading-card">Alfabeto</h3>
+              <h3 class="heading-card">{{j.nomecard}}</h3>
             </div>
-
-            <div>
-              <div class="card-img transparecia-img">
-                <img
-                  src="{% static 'img/images_pais_profs/colorir2.png' %}"
-                  alt="Imagem para colorir: animais na natureza"
-                />
-              </div>
-
-              <h3 class="heading-card">Natureza</h3>
-            </div>
-
-            <div>
-              <div class="card-img transparecia-img">
-                <img
-                  src="{% static 'img/images_pais_profs/colorir3.png' %}"
-                  alt="Imagem para colorir: um menino e uma menina brincando"
-                />
-              </div>
-
-              <h3 class="heading-card">Brincadeiras</h3>
-            </div>
+            {% endfor %}
           </div>
         </div>
-
-        <div class="display-cards">
-          <h2 class="heading-display">
-            Cartões <span class="text-didaticos">didáticos</span>
-          </h2>
-          <div class="retangle-didaticos"></div>
-          <div class="cards">
-            <div>
-              <div class="card-img">
-                <img
-                  src="{% static 'img/images_pais_profs/didatico1.png' %}"
-                  alt="Letras do alfabeto em cima de uma superficie"
-                />
-              </div>
-              <h3 class="heading-card">Português</h3>
-            </div>
-
-            <div>
-              <div class="card-img">
-                <img
-                  src="{% static 'img/images_pais_profs/didatico2.png' %}"
-                  alt="Ábaco: um contador matematico colorido"
-                />
-              </div>
-              <h3 class="heading-card">Matemática</h3>
-            </div>
-
-            <div>
-              <div class="card-img">
-                <img
-                  src="{% static 'img/images_pais_profs/didatico3.png' %}"
-                  alt="Estantes cheias de livros"
-                />
-              </div>
-              <h3 class="heading-card">História</h3>
-            </div>
-          </div>
-        </div>
-
-        <div class="display-cards">
-          <h2 class="heading-display">
-            Conhecimento para
-            <span class="text-pais-profs">pais e professores</span>
-          </h2>
-          <div class="retangle-pais-profs"></div>
-          <div class="cards">
-            <div>
-              <div class="card-img">
-                <img
-                  src="{% static 'img/images_pais_profs/pais-profs1.png' %}"
-                  alt="Placa com escrito: love to learn"
-                />
-              </div>
-              <h3 class="heading-card">
-                Lorem ipsum dolor sit amet, consectetur.
-              </h3>
-            </div>
-
-            <div>
-              <div class="card-img">
-                <img
-                  src="{% static 'img/images_pais_profs/pais-profs2.png' %}"
-                  alt="Lápis de cor"
-                />
-              </div>
-              <h3 class="heading-card">
-                Lorem ipsum dolor sit amet, consectetur.
-              </h3>
-            </div>
-
-            <div>
-              <div class="card-img">
-                <img
-                  src="{% static 'img/images_pais_profs/pais-profs3.png' %}"
-                  alt="Crianças andando com mochilas coloridas"
-                />
-              </div>
-              <h3 class="heading-card">
-                Lorem ipsum dolor sit amet, consectetur.
-              </h3>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </section>
     </main>
 

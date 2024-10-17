@@ -1,5 +1,6 @@
 from django.urls import path
+from . import views
 
 urlpatterns = [
-      # Ajuste conforme necessário
+      path('', views.forum, name='forum'),
 ]

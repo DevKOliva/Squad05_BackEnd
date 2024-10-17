@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,62 +10,43 @@
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <title>Vídeos</title>
 </head>
+
 <body>
-    
+
     <!--SEÇÃO NAV-BAR DA VÍDEOS-->
-    <header class="header">
-        <a href="{% static 'index.html' %}">
-          <img
-            class="nav-logo"
-            src="{% static 'img/images_navbar/logo.svg' %}"
-            alt="Sabidinhos logo"
-          />
-        </a>
-  
-        <nav class="nav">
-          <ul class="nav-list">
-            <li><a class="nav-link" href="/index.html">home</a></li>
-            <li>
-              <a class="nav-link active" href="../pages/videos.html">vídeos</a>
-            </li>
-            <li><a class="nav-link" href="../pages/forum.html">fórum</a></li>
-            <li>
-              <a class="nav-link" href="../pages/pais_profs.html">pais & profs</a>
-            </li>
-          </ul>
-          <div class="select_videos"></div>
-        </nav>
-      </header>
+    {%include 'navbar.html'%}
 
     <!--SEÇÃO BANNER DA PÁGINA "VÍDEOS" EM HTML-->
 
     <!--TÍTULO PRINCIPAL DO BANNER EM HTML-->
     <section class="hero">
         <div class="title_Hero">
-            <p class="title_font1">Mais <span class="title_font2"><span style="color:#F19436">conhecimento,</span> <span style="color:#704EEA">diversão</span> & <br/><span style="color:#E924AE">segurança<span> <span class="title_font1">para crianças</span></p>
+            <p class="title_font1">Mais <span class="title_font2"><span style="color:#F19436">conhecimento,</span> <span
+                        style="color:#704EEA">diversão</span> & <br /><span style="color:#E924AE">segurança<span> <span
+                                class="title_font1">para crianças</span></p>
         </div>
 
-    <!--IMAGENS PRINCIPAIS DO BANNER EM HTML-->
+        <!--IMAGENS PRINCIPAIS DO BANNER EM HTML-->
         <div class="imgs_banner">
             <div class="img">
-                <img src="{% static 'img/images_banner/img_universoZ.png' %}" class="img_resp"/>
+                <img src="{% static 'img/images_banner/img_universoZ.png' %}" class="img_resp" />
             </div>
             <div class="img">
-                <img src="{% static 'img/images_banner/img_bigIdea.png' %}" class="img1 img_resp"/>
+                <img src="{% static 'img/images_banner/img_bigIdea.png' %}" class="img1 img_resp" />
                 <img src="{% static 'img/images_banner/img_bebelaba.png' %}" class="img_resp" />
             </div>
             <div class="img_central">
-                <img src="{% static 'img/images_banner/img_bluey.png' %}" class="img_resp"/>
+                <img src="{% static 'img/images_banner/img_bluey.png' %}" class="img_resp" />
             </div>
             <div class="img">
-                <img src="{% static 'img/images_banner/img_Mytika.png' %}" class="img1 img_resp"/>
-                <img src="{% static 'img/images_banner/img_TurmaMonica.png' %}" class="img_resp"/>
+                <img src="{% static 'img/images_banner/img_Mytika.png' %}" class="img1 img_resp" />
+                <img src="{% static 'img/images_banner/img_TurmaMonica.png' %}" class="img_resp" />
             </div>
             <div class="img">
-                <img src="{% static 'img/images_banner/img_uauAnimal.png' %}" class="img_resp"/>
+                <img src="{% static 'img/images_banner/img_uauAnimal.png' %}" class="img_resp" />
             </div>
 
-    <!--ICONS FLUTUANTES DO BANNER EM HTML-->
+            <!--ICONS FLUTUANTES DO BANNER EM HTML-->
             <div class="iconCircle1"><img src="{% static 'img/images_banner/imgs_svg/CircleGray.svg' %}" /></div>
             <div class="iconCircle2"><img src="{% static 'img/images_banner/imgs_svg/CirclePurple.svg' %}" /></div>
             <div class="iconPlus1"><img src="{% static 'img/images_banner/imgs_svg/PlusClean.svg' %}" /></div>
@@ -72,43 +54,49 @@
             <div class="iconStar1"><img src="{% static 'img/images_banner/imgs_svg/starPurple.svg' %}" /></div>
             <div class="iconStar2"><img src="{% static 'img/images_banner/imgs_svg/starYellow.svg' %}" /></div>
         </div>
-        <p class="legenda_banner">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit incidunt minus non porro quasi earum vel alias quis iure voluptatum, blanditiis odit beatae quibusdam nulla asperiores ex magni in mollitia!</p>
+        <p class="legenda_banner">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit incidunt minus non
+            porro quasi earum vel alias quis iure voluptatum, blanditiis odit beatae quibusdam nulla asperiores ex magni
+            in mollitia!</p>
     </section>
 
     <!--SEÇÃO CATEGORIAS DOS SERVIÇOS EM HTML-->
     <section class="categorias_produto">
         <div class="categorias">
-                <div class="icons">
-                    <img src="{% static 'img/images_descrição/icon_hat.png' %}" />
-                </div>
-                <div>
-                    <p class="label_icons">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis libero saepe dolorem, nulla inventore quisquam molestias accusantium.</p>
-                </div>
+            <div class="icons">
+                <img src="{% static 'img/images_descrição/icon_hat.png' %}" />
+            </div>
+            <div>
+                <p class="label_icons">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis libero saepe
+                    dolorem, nulla inventore quisquam molestias accusantium.</p>
+            </div>
         </div>
         <div class="categorias">
             <div class="icons">
-                    <img src="{% static 'img/images_descrição/icon_pencil2.png' %}" class="pencil2"/> <br/>
-                    <img src="{% static 'img/images_descrição/icon_pencil1.png' %}" class="pencil1"/>
-                </div>
-                <div>
-                    <p class="label_icons">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis libero saepe dolorem, nulla inventore quisquam molestias accusantium.</p>
-                </div>
+                <img src="{% static 'img/images_descrição/icon_pencil2.png' %}" class="pencil2" /> <br />
+                <img src="{% static 'img/images_descrição/icon_pencil1.png' %}" class="pencil1" />
+            </div>
+            <div>
+                <p class="label_icons">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis libero saepe
+                    dolorem, nulla inventore quisquam molestias accusantium.</p>
+            </div>
         </div>
         <div class="categorias">
-                <div class="icons">
-                    <img src="{% static 'img/images_descrição/icon_moon.png' %}" />
-                </div>
-                <div>
-                    <p class="label_icons">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis libero saepe dolorem, nulla inventore quisquam molestias accusantium.</p>
-                </div>
+            <div class="icons">
+                <img src="{% static 'img/images_descrição/icon_moon.png' %}" />
+            </div>
+            <div>
+                <p class="label_icons">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis libero saepe
+                    dolorem, nulla inventore quisquam molestias accusantium.</p>
+            </div>
         </div>
         <div class="categorias">
-                <div class="icons">
-                    <img src="{% static 'img/images_descrição/icon_school.png' %}" />
-                </div>
-                <div>
-                    <p class="label_icons">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis libero saepe dolorem, nulla inventore quisquam molestias accusantium.</p>
-                </div>
+            <div class="icons">
+                <img src="{% static 'img/images_descrição/icon_school.png' %}" />
+            </div>
+            <div>
+                <p class="label_icons">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis libero saepe
+                    dolorem, nulla inventore quisquam molestias accusantium.</p>
+            </div>
         </div>
     </section>
 
@@ -206,14 +194,9 @@
 
     <!--SEÇÃO RODAPÉ DA PÁGINA-->
     {% include 'footer.html' %}
-  
-      <script
-        type="module"
-        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-      ></script>
-      <script
-        nomodule
-        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-      ></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
