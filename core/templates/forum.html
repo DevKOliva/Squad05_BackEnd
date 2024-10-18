@@ -14,17 +14,17 @@
     
     <!--SEÇÃO NAV-BAR DA FORUM-->
     <header class="header">
-      <a href="/index.html">
+      <a href="{% url 'home' %}">
         <img class="nav-logo" src="{% static 'img/images_navbar/logo.svg' %}" alt="Sabidinhos logo" />
       </a>
 
       <nav class="nav">
         <ul class="nav-list">
-          <li><a class="nav-link" href="/index.html">home</a></li>
-          <li><a class="nav-link" href="../pages/videos.html">vídeos</a></li>
-          <li><a class="nav-link active" href="../pages/forum.html">fórum</a></li>
+          <li><a class="nav-link" href="{% url 'home' %}">home</a></li>
+          <li><a class="nav-link" href="{% url 'videos' %}">vídeos</a></li>
+          <li><a class="nav-link active" href="{% url 'forum' %}">fórum</a></li>
           <li>
-            <a class="nav-link" href="../pages/pais_profs.html">pais & profs</a>
+            <a class="nav-link" href="{% url 'pais_videos' %}">pais & profs</a>
           </li>
         </ul>
         <div class="select_forum"></div>
@@ -110,82 +110,39 @@
     <!--SEÇÃO COMENTÁRIOS USERS DA PÁGINA FORMS-->
     <section class="comment_users_forms">
       <!--COMENTÁRIO #1-->
+      
+      {% for c in comentarios %}
       <div class="comentario_PagForms">
         <div class="titleComment_Forms">
-          <p class="textTitle_Comment">Lorem ipsum dolor sit amet</p>
+          <p class="textTitle_Comment">{{ c.titulo }}</p>
         </div>
         <div class="ContentComment_Forms">
           <div class="UpContent_Forms">
             <div class="Group_profile_icon_forms">
               <div class="profileRectangleForms"></div>
-              <img
-                src="{% static 'img/images_IconsForum/iconForumProfile1.svg' %}"
-                class="icon_profile"
-              />
-            </div>
+              {% if c.nome_usuario == "Cavalo Anônimo" %}  
+                <img
+                  src="{% static 'img/images_IconsForum/iconForumProfile1.svg' %}"
+                  class="icon_profile"
+                />
+              {% endif %} 
 
-            <div class="Group_Text_profile">
-              <p class="text_profile1">Cavalo Anônimo</p>
-              <p class="text_profile2">12h atrás</p>
-            </div>
-          </div>
-          <div class="DownContent_Forms">
-            <p class="text_profile3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Architecto sapiente quisquam officia eius maiores ex neque
-              voluptates, blanditiis odit facere, voluptatum pariatur vel,
-              repellendus sint in. Corporis neque tenetur ut...
-            </p>
-
-            <p class="text_profile2">
-              Ver mais
-              <img src="{% static 'img/images_IconsForum/iconSettingDown.svg' %}" />
-            </p>
-          </div>
-        </div>
-        <div class="FooterComment_Forms">
-          <div class="AddComment_FooterForms">
-            <img src="{% static 'img/images_IconsForum/iconForumSalvar1.svg' %}" />
-
-            <div class="Div_Footer_Comentario">
-              <img src="{% static 'img/images_IconsForum/iconForumChat.svg' %}" />
-
-              <span class="text_profile4">Adicionar comentário</span>
-            </div>
-          </div>
-          <div class="text_profile5">
-            Faça como Capivara Anônima, Falcão Anônimo e outras 20 pessoas e
-            comente sobre <b>Lorem ipsum dolor sit amet</b>
-          </div>
-        </div>
-      </div>
-
-      <!--COMENTÁRIO #2-->
-      <div class="comentario_PagForms">
-        <div class="titleComment_Forms">
-          <p class="textTitle_Comment">Lorem ipsum dolor sit amet</p>
-        </div>
-        <div class="ContentComment_Forms">
-          <div class="UpContent_Forms">
-            <div class="Group_profile_icon_forms">
-              <div class="profileRectangleForms2"></div>
-              <img
+              {% if c.nome_usuario == "Cervo Anônimo" %}
+                <img
                 src="{% static 'img/images_IconsForum/iconForumProfile2.svg' %}"
                 class="icon_profile"
-              />
+                />
+              {% endif %}
             </div>
 
             <div class="Group_Text_profile">
-              <p class="text_profile1">Cervo Anônimo</p>
-              <p class="text_profile2">1 dia atrás</p>
+              <p class="text_profile1">{{ c.nome_usuario }}</p>
+              <p class="text_profile2">{{ c.criado_a }}h atrás</p>
             </div>
           </div>
           <div class="DownContent_Forms">
             <p class="text_profile3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Architecto sapiente quisquam officia eius maiores ex neque
-              voluptates, blanditiis odit facere, voluptatum pariatur vel,
-              repellendus sint in. Corporis neque tenetur ut...
+              {{ c.comentario }}
             </p>
 
             <p class="text_profile2">
@@ -196,7 +153,14 @@
         </div>
         <div class="FooterComment_Forms">
           <div class="AddComment_FooterForms">
-            <img src="{% static 'img/images_IconsForum/iconForumSalvar2.svg' %}" />
+
+            {% if c.favoritado %}  
+              <img src="{% static 'img/images_IconsForum/iconForumSalvar2.svg' %}" />
+            {% endif %} 
+
+            {% if not c.favoritado %}
+              <img src="{% static 'img/images_IconsForum/iconForumSalvar1.svg' %}" />
+            {% endif %}
 
             <div class="Div_Footer_Comentario">
               <img src="{% static 'img/images_IconsForum/iconForumChat.svg' %}" />
@@ -205,113 +169,13 @@
             </div>
           </div>
           <div class="text_profile5">
-            Faça como Capivara Anônima, Falcão Anônimo e outras 6 pessoas e
+            Faça como Capivara Anônima, Falcão Anônimo e outras {{ c.pessoas_comentando }} pessoas e
             comente sobre <b>Lorem ipsum dolor sit amet</b>
           </div>
         </div>
       </div>
+      {% endfor %}
 
-      <!--COMENTÁRIO #3-->
-      <div class="comentario_PagForms">
-        <div class="titleComment_Forms">
-          <p class="textTitle_Comment">Lorem ipsum dolor sit amet</p>
-        </div>
-        <div class="ContentComment_Forms">
-          <div class="UpContent_Forms">
-            <div class="Group_profile_icon_forms">
-              <div class="profileRectangleForms"></div>
-              <img
-                src="{% static 'img/images_IconsForum/iconForumProfile1.svg' %}"
-                class="icon_profile"
-              />
-            </div>
-
-            <div class="Group_Text_profile">
-              <p class="text_profile1">Cavalo Anônimo</p>
-              <p class="text_profile2">12h atrás</p>
-            </div>
-          </div>
-          <div class="DownContent_Forms">
-            <p class="text_profile3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Architecto sapiente quisquam officia eius maiores ex neque
-              voluptates, blanditiis odit facere, voluptatum pariatur vel,
-              repellendus sint in. Corporis neque tenetur ut...
-            </p>
-
-            <p class="text_profile2">
-              Ver mais
-              <img src="{% static 'img/images_IconsForum/iconSettingDown.svg' %}" />
-            </p>
-          </div>
-        </div>
-        <div class="FooterComment_Forms">
-          <div class="AddComment_FooterForms">
-            <img src="{% static 'img/images_IconsForum/iconForumSalvar1.svg' %}" />
-
-            <div class="Div_Footer_Comentario">
-              <img src="{% static 'img/images_IconsForum/iconForumChat.svg' %}" />
-
-              <span class="text_profile4">Adicionar comentário</span>
-            </div>
-          </div>
-          <div class="text_profile5">
-            Faça como Capivara Anônima, Falcão Anônimo e outras 20 pessoas e
-            comente sobre <b>Lorem ipsum dolor sit amet</b>
-          </div>
-        </div>
-      </div>
-
-      <!--COMENTÁRIO #4-->
-      <div class="comentario_PagForms">
-        <div class="titleComment_Forms">
-          <p class="textTitle_Comment">Lorem ipsum dolor sit amet</p>
-        </div>
-        <div class="ContentComment_Forms">
-          <div class="UpContent_Forms">
-            <div class="Group_profile_icon_forms">
-              <div class="profileRectangleForms2"></div>
-              <img
-                src="{% static 'img/images_IconsForum/iconForumProfile2.svg' %}"
-                class="icon_profile"
-              />
-            </div>
-
-            <div class="Group_Text_profile">
-              <p class="text_profile1">Cervo Anônimo</p>
-              <p class="text_profile2">1 dia atrás</p>
-            </div>
-          </div>
-          <div class="DownContent_Forms">
-            <p class="text_profile3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Architecto sapiente quisquam officia eius maiores ex neque
-              voluptates, blanditiis odit facere, voluptatum pariatur vel,
-              repellendus sint in. Corporis neque tenetur ut...
-            </p>
-
-            <p class="text_profile2">
-              Ver mais
-              <img src="{% static 'img/images_IconsForum/iconSettingDown.svg' %}" />
-            </p>
-          </div>
-        </div>
-        <div class="FooterComment_Forms">
-          <div class="AddComment_FooterForms">
-            <img src="{% static 'img/images_IconsForum/iconForumSalvar2.svg' %}" />
-
-            <div class="Div_Footer_Comentario">
-              <img src="{% static 'img/images_IconsForum/iconForumChat.svg' %}" />
-
-              <span class="text_profile4">Adicionar comentário</span>
-            </div>
-          </div>
-          <div class="text_profile5">
-            Faça como Capivara Anônima, Falcão Anônimo e outras 6 pessoas e
-            comente sobre <b>Lorem ipsum dolor sit amet</b>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!--SEÇÃO TÓPICOS POPULARES DA PÁGINA FORMS-->
@@ -323,61 +187,26 @@
       <!--DIV QUE CONTÉM TODAS AS POPS DA PÁGINA-->
       <div class="all_pop">
         <!--POP_PAGFORMS #1-->
-        <div class="pop_PagForms">
-          <div class="titlepop_Forms">
-            <p class="title_pop">Lorem ipsum dolor sit amet</p>
-            <p class="text_pop">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              at mauris quis magna aliquet condimentumt.
-            </p>
-          </div>
-          <div class="group_pop">
-            <img src="{% static 'img/images_IconsForum/iconForumChat.svg' %}" alt="" />
-            <p class="coment_pop">25 pessoas estão discutindo esse tópico</p>
-          </div>
-          <div class="group_pop">
-            <img src="{% static 'img/images_IconsForum/iconForumTime.svg' %}" alt="" />
-            <p class="coment_pop">Criado à 3 meses</p>
-          </div>
-        </div>
+        
+        {% for t in topicos %}
+            <div class="pop_PagForms">
+              <div class="titlepop_Forms">
+                <p class="title_pop">{{ t.titulo }}</p>
+                <p class="text_pop">
+                  {{ t.descricao }}
+                </p>
+              </div>
+              <div class="group_pop">
+                <img src="{% static 'img/images_IconsForum/iconForumChat.svg' %}" alt="" />
+                <p class="coment_pop">{{ t.pessoas_discutindo }} pessoas estão discutindo esse tópico</p>
+              </div>
+              <div class="group_pop">
+                <img src="{% static 'img/images_IconsForum/iconForumTime.svg' %}" alt="" />
+                <p class="coment_pop">Criado à {{ t.criado_a }} meses</p>
+              </div>
+            </div>
+        {% endfor %}
 
-        <!--POP PAGFORMS #2-->
-        <div class="pop_PagForms">
-          <div class="titlepop_Forms">
-            <p class="title_pop">Lorem ipsum dolor sit amet</p>
-            <p class="text_pop">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              at mauris quis magna aliquet condimentumt.
-            </p>
-          </div>
-          <div class="group_pop">
-            <img src="{% static 'img/images_IconsForum/iconForumChat.svg' %}" alt="" />
-            <p class="coment_pop">25 pessoas estão discutindo esse tópico</p>
-          </div>
-          <div class="group_pop">
-            <img src="{% static 'img/images_IconsForum/iconForumTime.svg' %}" alt="" />
-            <p class="coment_pop">Criado à 3 meses</p>
-          </div>
-        </div>
-
-        <!--POP PAGFORMS #3-->
-        <div class="pop_PagForms">
-          <div class="titlepop_Forms">
-            <p class="title_pop">Lorem ipsum dolor sit amet</p>
-            <p class="text_pop">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              at mauris quis magna aliquet condimentumt.
-            </p>
-          </div>
-          <div class="group_pop">
-            <img src="{% static 'img/images_IconsForum/iconForumChat.svg' %}" alt="" />
-            <p class="coment_pop">25 pessoas estão discutindo esse tópico</p>
-          </div>
-          <div class="group_pop">
-            <img src="{% static 'img/images_IconsForum/iconForumTime.svg' %}" alt="" />
-            <p class="coment_pop">Criado à 3 meses</p>
-          </div>
-        </div>
       </div>
     </section>
 
