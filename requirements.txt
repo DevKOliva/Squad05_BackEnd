@@ -1,5 +1,5 @@
-asgiref==
-Django==
-pillow==
-sqlparse==
-tzdata==
+asgiref
+Django
+pillow
+sqlparse
+tzdata
