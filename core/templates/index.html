@@ -14,26 +14,8 @@
 <body>
 
     <!--SEÇÃO NAV-BAR DA HOME-->
-    <header class="header">
-        <a href="{% static 'index.html' %}">
-            <img class="nav-logo" src="{% static 'img/images_navbar/logo.svg' %}" alt="Sabidinhos logo" />
-        </a>
-
-        <nav class="nav">
-            <ul class="nav-list">
-                <li>
-                    <a class="nav-link active" href="#">home</a>
-                </li>
-                <li><a class="nav-link" href="{% url 'videos' %}">vídeos</a></li>
-                <li><a class="nav-link" href="{% url 'forum' %}">fórum</a></li>
-                <li>
-                    <a class="nav-link" href="{% url 'pais_videos' %}">pais & profs</a>
-                </li>
-            </ul>
-            <div class="select_home"></div>
-        </nav>
-    </header>
-    <br /><br /><br /><br /><br />
+    {%include 'navbar.html'%}
+      <br/><br/><br/><br/><br/>
 
     <!--SEÇÃO BANNER DA PÁGINA "HOME" EM HTML-->
     <section class="hero_home">

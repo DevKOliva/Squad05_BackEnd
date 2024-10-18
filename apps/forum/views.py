@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Topico, Comentario
 
+def forum(request):
+    return render(request, 'forum.html')
+
 # Create your views here.
 def index(request):
 

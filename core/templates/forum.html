@@ -13,24 +13,7 @@
   <body>
     
     <!--SEÇÃO NAV-BAR DA FORUM-->
-    <header class="header">
-      <a href="{% url 'home' %}">
-        <img class="nav-logo" src="{% static 'img/images_navbar/logo.svg' %}" alt="Sabidinhos logo" />
-      </a>
-
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a class="nav-link" href="{% url 'home' %}">home</a></li>
-          <li><a class="nav-link" href="{% url 'videos' %}">vídeos</a></li>
-          <li><a class="nav-link active" href="{% url 'forum' %}">fórum</a></li>
-          <li>
-            <a class="nav-link" href="{% url 'pais_videos' %}">pais & profs</a>
-          </li>
-        </ul>
-        <div class="select_forum"></div>
-      </nav>
-    </header>
-    </header>
+    {%include 'navbar.html' %}
 
     <!--SEÇÃO HERO DA PÁGINA FORMS-->
     <section class="hero_PagForms">
