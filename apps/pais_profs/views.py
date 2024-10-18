@@ -8,13 +8,23 @@ def pais_profs(request):
     categoria = Categoria.objects.all()
     card = Card.objects.all()
 
-    card1 = Card.objects.filter(categoria__palavraDestaque='Colorir')
+    dados = []
+
+    for i in categoria:
+        dici = {
+            'categoria': i,
+            'card':[]
+        }
+        for j in card:
+            if j.categoria.palavraDestaque == i.palavraDestaque:
+                dici['card'].append(j)
+        dados.append(dici)
 
     context = {
         'categoria' : categoria,
         'card' : card,
         'descricao' : descricao,
-        'card1' : card1,
+        'dados' : dados,
     }
 
     return render(request, 'pais_profs.html', context)

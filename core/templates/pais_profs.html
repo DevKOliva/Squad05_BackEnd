@@ -1,93 +1,90 @@
+<!--para entrar na pagina pais_profs, precisa retirar o L do pais_profs/l-->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap">
 
-    <link rel="stylesheet" href="{% static 'css/pais_profs.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-    <title>Pais e Professores</title>
-  </head>
-  <body>
-    
-    <!--SEÇÃO NAV-BAR DA PAIS&PROFS-->
-    {% include 'navbar.html' %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
 
-    <main>
-      <section class="section-hero">
-        <div class="hero">
-          <h1 class="heading-hero">
-            Juntos no aprendizado:
-            <span class="text-recusos">recursos</span> para
-            <span class="text-fortalecimento">fortalecimento</span> da educação
-          </h1>
+  <link rel="stylesheet" href="{% static 'css/pais_profs.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <title>Pais e Professores</title>
+</head>
 
-          <p class="description-hero">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            at mauris quis magna aliquet condimentum. Cras et turpis id eros
-            tincidunt faucibus. Nullam aliquam malesuada neque, ac hendrerit
-            lacus tincidunt eu. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Phasellus at mauris quis magna aliquet condimentum.
-            Cras et turpis id eros tincidunt faucibus. Nullam aliquam malesuada
-            neque, ac hendrerit lacus tincidunt eu.
-          </p>
-        </div>
-      </section>
+<body>
 
-      <section class="section-recursos">
-        {% for i in categoria %}
-        <div class="display-cards">
-          <h2 class="heading-display">
-            {{i.nome}} <span class="text-{{i.classe}}">{{i.palavraDestaque}}</span>
-          </h2>
-          <div class="retangle-colorir"></div>
-          <div class="cards">
-            {% for j in card %}
-            <div>
-              <div class="card-img transparecia-img">
-                <img
-                  src="{{j.img.url}}"
-                  alt="Imagem para colorir: letra 'A'"
-                />
-              </div>
+  <!--SEÇÃO NAV-BAR DA PAIS&PROFS-->
+  {% include 'navbar.html' %}
 
-              <h3 class="heading-card">{{j.nomecard}}</h3>
+  <main>
+    <section class="section-hero">
+      <div class="hero">
+        <h1 class="heading-hero">
+          Juntos no aprendizado:
+          <span class="text-recusos">recursos</span> para
+          <span class="text-fortalecimento">fortalecimento</span> da educação
+        </h1>
+
+        <p class="description-hero">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+          at mauris quis magna aliquet condimentum. Cras et turpis id eros
+          tincidunt faucibus. Nullam aliquam malesuada neque, ac hendrerit
+          lacus tincidunt eu. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Phasellus at mauris quis magna aliquet condimentum.
+          Cras et turpis id eros tincidunt faucibus. Nullam aliquam malesuada
+          neque, ac hendrerit lacus tincidunt eu.
+        </p>
+      </div>
+    </section>
+
+
+
+    <section class="section-recursos">
+      {% for item in dados %}
+
+      <div class="display-cards">
+        <h2 class="heading-display">
+          {{item.categoria.nome}} <span class="text-{{item.categoria.classe}}">{{item.categoria.palavraDestaque}}</span>
+        </h2>
+        <div class="retangle-colorir"></div>
+        <div class="cards">
+          {%for card in item.card%}
+          <div>
+
+            <div class="card-img transparecia-img">
+              <img src="{{card.img.url}}" alt="Imagem para colorir: letra 'A'" />
             </div>
-            {% endfor %}
+
+            <h3 class="heading-card">{{card.nomecard}}</h3>
           </div>
+          {%endfor%}
         </div>
-        {% endfor %}
-      </section>
-    </main>
+      </div>
+      {% endfor %}
+    </section>
+  </main>
 
-    <!--SEÇÃO RODAPÉ DA PÁGINA-->
-    {% include 'footer.html' %}
+  <!--SEÇÃO RODAPÉ DA PÁGINA-->
+  {% include 'footer.html' %}
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-  </body>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
 </html>

@@ -102,94 +102,20 @@
 
     <!--SEÇÃO VÍDEOS EDUCATIVOS EM HTML-->
     <section class="videos_educativos">
+        {% for item in dados %}
         <div class="title_videos">
-            <p class="title_videosEducativos">Vídeos <span class="title_videos2">educativos</span></p>
+            <p class="title_videosEducativos">{{item.categoria.nome}} <span class="title_videos2">{{item.categoria.palavraDestaque}}</span></p>
         </div>
-
-        <div class="grupo_videos">
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-            </div>
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-
-            </div>
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+            <div class="grupo_videos">
+            {% for video in item.video %}
+                <div class="video">
+                    <div class="moldura"><img src="{{video.imgvideo.url}}" /></div>
+                    <p class="label_moldura">{{video.nomevideo}}</p>
+                </div>
+            {%endfor%}
             </div>
         </div>
-    </section>
-
-    <!--SEÇÃO VÍDEOS TUTORIAIS EM HTML-->
-    <section class="videos_tutoriais">
-        <div class="title_videos">
-            <p class="title_videos_Tutoriais">Vídeos <span class="title_videosTutoriais">de tutoriais</span></p>
-        </div>
-
-        <div class="grupo_videos">
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-            </div>
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-
-            </div>
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-            </div>
-        </div>
-    </section>
-
-    <!--SEÇÃO HISTÓRIAS PARA DORMIR EM HTML-->
-    <section class="historias_dormir">
-        <div class="title_videos">
-            <p class="title_videosHistorias">Histórias <span class="title_historias">para dormir</span></p>
-        </div>
-
-        <div class="grupo_videos">
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-            </div>
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-
-            </div>
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-            </div>
-        </div>
-    </section>
-
-    <!--SEÇÃO AULAS INTERATIVAS EM HTML-->
-    <section class="aulas_interativas">
-        <div class="title_videos">
-            <p class="title_videosInterativos">Aulas <span class="title_AInterativa">interativas</span></p>
-        </div>
-
-        <div class="grupo_videos">
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-            </div>
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-
-            </div>
-            <div class="video">
-                <div class="moldura"><img src="{% static 'img/images_seções/Icon_Play.png' %}" /></div>
-                <p class="label_moldura">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-            </div>
-        </div>
+        {%endfor%}
     </section>
 
     <!--SEÇÃO RODAPÉ DA PÁGINA-->
